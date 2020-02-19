@@ -3,8 +3,51 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style>
+      body{
+        background-color: lightblue;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      #small_square {
+        background-color: white;
+        width: 4px;
+        border: 5px solid white;
+        padding: 1px;
+        margin: 1px;
+      }
+      /* .square {
+        display: flex;
+        flex-direction: row;
+      }
+      this doesn't seem to work*/
+    </style>
+
   </head>
   <body>
-
+    <input type= "number" id = myNumber />
+    <button onclick =" print_squares() ">Create Squares </button>
+    <div className = 'squares'>
+<!-- Don't really know why this className doesn't work. -->
+    <script >
+    let square_num = 0
+    function print_squares() {
+        var num = document.getElementById("myNumber").value;
+//Create a while loop to add squares.
+        while (square_num < num){
+          var square = document.createElement('div');
+          square.id = 'small_square'
+          document.body.appendChild(square);
+          square_num += 1;
+        }
+//Create a while loop to remove squares.
+        while (square_num > num) {
+          document.body.removeChild(document.body.lastChild)
+          square_num -= 1;
+        }
+    }
+    </script>
+  </div>
   </body>
 </html>
