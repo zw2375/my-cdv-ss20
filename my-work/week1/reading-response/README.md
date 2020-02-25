@@ -1,8 +1,13 @@
 ## Why does Bowker say "'Raw data is both and oxymoron and a bad idea'" ? (pp. 663)
+(process of creating data and collecting data in the first place)
 
 I think raw data is oxymoron because different people can have different understanding within the same data. Just as the saying goes:"：There are a thousand Hamlets in a thousand people's eyes. " However, comparing to the valuable variety appreciation of art, data should be concluded to demonstrade a phenonmenon with a complicated process of analysis instead of rediating different opinions and understanding. Thus it is a bad idea to keep the raw data for it may be misunderstood and then used wrongly.
 
 ## What could be meant by the quote "'accounting tools [...] do not simply aid the measurement of economic activity, they shape the reality they measure'"?
+(shapng the reality)
+when u calculate the data, you may delete the other possibilities of the data can demonstrade
+
+color of the year, price goes up 
 
 Diffrent calculating results will lead to different conclusions which demonsrate some kind of phenonmenons or truths. So when accounting tools are accounting the data, they are actually calculating the reality. In the process of accounting , it's getting closer to the reality as it ‘peeling off the epiermins one by one’ which is 'shaping the reality' as mentioned in the quote.
 

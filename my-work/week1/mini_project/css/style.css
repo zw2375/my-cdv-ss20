@@ -1,0 +1,16 @@
+.bar{
+  height: 50px;
+  background-color: white;
+  margin-bottom: 5px;
+  border: 2px, black;
+}
+body{
+  background-image: url(https://fontech.startitup.sk/wp-content/uploads/2019/08/14083744918_97719c8f2d_o.jpg);
+  background-size: 100%;
+}
+h1{
+  color:  #fcf4f7;
+  text-align: center;
+  font-size: 80px;
+  font-family: sans-serif;
+}

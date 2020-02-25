@@ -10,35 +10,44 @@
         flex-direction: row;
         align-items: flex-start;
       }
-      #small_square {
+      .small_square {
         background-color: white;
         width: 4px;
         border: 5px solid white;
         padding: 1px;
         margin: 1px;
       }
-      /* .square {
+      #squares {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
+        width: 70%;
+        border: white 1px solid;
       }
-      this doesn't seem to work*/
+      /*this doesn't seem to work*/
     </style>
 
   </head>
   <body>
     <input type= "number" id = myNumber />
     <button onclick =" print_squares() ">Create Squares </button>
-    <div className = 'squares'>
+    <div id = 'squares'></div>
 <!-- Don't really know why this className doesn't work. -->
+
+
     <script >
     let square_num = 0
     function print_squares() {
-        var num = document.getElementById("myNumber").value;
+        let theInput = document.getElementById("myNumber");
+
+        var num = theInput.value;
 //Create a while loop to add squares.
         while (square_num < num){
+          let container = document.getElementById('squares');
+
           var square = document.createElement('div');
-          square.id = 'small_square'
-          document.body.appendChild(square);
+          square.className = 'small_square'
+          container.appendChild(square);
           square_num += 1;
         }
 //Create a while loop to remove squares.
@@ -48,6 +57,6 @@
         }
     }
     </script>
-  </div>
+
   </body>
 </html>
