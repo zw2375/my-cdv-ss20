@@ -1,0 +1,18 @@
+## How to technical tools promise to "fair out" the remaining discrimination that exist in social/welfare systems? In how far can they succeed, in which ways do they fail?
+These technical tools promise to seperate the people who truly worth these welfares and the people who are unworthy for their laziness,dishonest and so on.
+And these technical tools are succeed in setting up a system which have the equal standard for everyone. People must meet the same standard so that they can get the service or resources. This can reduce the stereotype that workers might have when evaluating whether the person deserve the service or resource.
+
+However, these technical tools also fail because of the limited algorithm written by people and people normally can't consider everything that may happen thoroughly. However these systems regard this limited algorithm as the most crutial and only dimention to execute, they are extremely strict and wouldn't evaluate whether some cases are worth eception as real human do. And because the result is made by the objective computer, workers would believe this result is the most fair one, making those people harder to get what they should get.
+
+##Imagine, what could this (following quotes) mean in the widest sense?
+##"The state doesn't need a cop to kill a person" and "electronic incarceration"
+When people's request is denied by a person, they may comfort themselves that the person they came across is unreasonable. Besides, the outcome may be different when they turn to other institutions. However, when being denied by the whole system, people would feel themselves being expelled by the whole society. That's what make them feel incarcerated. Besides this, denying people's access to housings, medical insurance and so on is actually killing since they can't even satisfy their basic needs.
+
+## What do you understand this to mean?
+##"systems act as a kind of 'empathy-overwrite'"
+With the limited algorithm and stock rules, the system would deal with special cases with the same criteria, making the decision made little empathy.
+
+##China is much more advanced and expansive when it comes to applying technical solutions to societal processes or instant challenges (recent example). Try to point example cases in China that are in accordance or in opposition to the problematics discussed in the podcast. Perhaps you can think of
+##"technical systems not well thought-through about what their impace on human beings is"
+
+There is a unique case that I watched in my EAP class. There is a primary school in Shanghai where students have to wear brain-wave trakers in order to track their levels of concentration during the class. Those data are generated and sent to teachers and WeChat groups where all the parents can see the results. This really surprises me since the video also shows that this brain-wave tracking technology is not completed and there will be lots of biases going on. In the meanwhile, parents and teachers regard this result as truth and would judge students for that. This obivously add great pressure to students. And also the application of this technology ignore the fact that there are times that students gain a lot of great things when letting their minds fly, especially for childs who are still in the primary school.
