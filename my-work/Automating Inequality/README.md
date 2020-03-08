@@ -9,6 +9,7 @@ When people's request is denied by a person, they may comfort themselves that th
 
 ## What do you understand this to mean? "systems act as a kind of 'empathy-overwrite'"
 With the limited algorithm and stock rules, the system would deal with special cases with the same criteria, making the decision made little empathy.
+And as there are so many things can be done in a different way that makes a person's calculated score higher. This lead to the phenonmenon where people can rewrite the "empathy" that the system gives them.
 
 ## China is much more advanced and expansive when it comes to applying technical solutions to societal processes or instant challenges (recent example). Try to point example cases in China that are in accordance or in opposition to the problematics discussed in the podcast. Perhaps you can think of"technical systems not well thought-through about what their impace on human beings is"
 
