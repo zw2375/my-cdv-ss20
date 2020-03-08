@@ -13,6 +13,6 @@ When people's request is denied by a person, they may comfort themselves that th
 With the limited algorithm and stock rules, the system would deal with special cases with the same criteria, making the decision made little empathy.
 
 ## China is much more advanced and expansive when it comes to applying technical solutions to societal processes or instant challenges (recent example). Try to point example cases in China that are in accordance or in opposition to the problematics discussed in the podcast. Perhaps you can think of
-##"technical systems not well thought-through about what their impace on human beings is"
+## "technical systems not well thought-through about what their impace on human beings is"
 
 There is a unique case that I watched in my EAP class. There is a primary school in Shanghai where students have to wear brain-wave trakers in order to track their levels of concentration during the class. Those data are generated and sent to teachers and WeChat groups where all the parents can see the results. This really surprises me since the video also shows that this brain-wave tracking technology is not completed and there will be lots of biases going on. In the meanwhile, parents and teachers regard this result as truth and would judge students for that. This obivously add great pressure to students. And also the application of this technology ignore the fact that there are times that students gain a lot of great things when letting their minds fly, especially for childs who are still in the primary school.
