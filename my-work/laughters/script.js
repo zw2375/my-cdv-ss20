@@ -5,6 +5,13 @@ let container = d3.select("#container")
     .attr("height",1000)
 ;
 
+container.append("circle")
+      .attr("cx",500)
+      .attr("cy",500)
+      .attr("r",20)
+      .attr("fill","#F25F5C")
+  ;
+
 d3.json("laughters.json").then(gotData);
 
 function gotData(incomingLaughters){
@@ -36,12 +43,12 @@ function gotData(incomingLaughters){
     }
   }
 
-// function randomX(){
-//   return Math.random()*1000;
-// }
-// function randomY(){
-//   return Math.random()*1000;
-// }
+function randomX(){
+  return Math.random()*1000;
+}
+function randomY(){
+  return Math.random()*1000;
+}
 function randomPosition(d,i){
   let x = i*10;
   let amplitude = 10;
