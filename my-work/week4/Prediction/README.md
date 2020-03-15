@@ -1,6 +1,8 @@
 # Examples
 1.The built-in function in phones which predicts the time that the battery run out as a reference for users.
+
 2.The app that predict the arriving time of the next bus.
+
 3.The app that helps with memorizing words will predict the time when users need to rememorize words according to the forgetting curve.
 
 # Thoughts
