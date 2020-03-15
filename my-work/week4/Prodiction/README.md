@@ -1,8 +1,8 @@
-##Examples
+##Examples##
 1.The built-in function in phones which predicts the time that the battery run out as a reference for users.
 2.The app that predict the arriving time of the next bus.
 3.The app that helps with memorizing words will predict the time when users need to rememorize words according to the forgetting curve.
-##Thoughts
+##Thoughts##
 The examples that I came up with are all small functions that people would use unconsciously in their daily lives. I reckon that these functions are successful examples that make a good combination of collective average and individual. Take the third one as an example. At the very beginning of the using, the app would use the average data to calculate and then bring out plan for users. But gradually, as the user keep interacting with the app by telling it their level of familiarity for each word they come across, the app will collect these data and use them to personalize the forgetting curve. This curve may not change so obvious that it makes the personalized plan completely different from the average one since the collective average indeed shows the basic regulation of people's mind to memorize things. However, if compared to the apps which stick to the average forgetting curve, this app provides much better user experience and greatly increase the efficiency. This kind of mode is one of the modes which are commonly adapted in the apps and causes little dispute.
 
 Besides this, I reckon that what make these examples successful is that the prediction is focusing on relatively objective regulation or truth. However, as for the three provided resources, they seem to focus more on predicting human's behavior which is much more subjective and depends on individual inner thoughts. And in these cases, the collective average seems to be not that useful here since though the rate maybe 5% (for example), however, for the person who do this, it's not that there is 5 percent of possibility that he/she will do it, instead it's a 100% thing and this makes those kind of prediction difficult and controversial.
