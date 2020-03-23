@@ -6,6 +6,8 @@ let container = d3.select("#container")
 ;
 
 
+
+
 // data functions can be oit of gotData because they dont rely on the data being loaded (since before that they arenot called anyway)
 function chooseColor(incomingLaughters){
   if (incomingLaughters.purposeReasonOfLaughters == "Watch sth funny online") {
@@ -22,21 +24,81 @@ function chooseColor(incomingLaughters){
   }
 }
 
-function randomX(){
-  return Math.random()*1000;
-}
-
-function randomY(){
-  return Math.random()*1000;
-}
 
 function randomPosition(d,i){
-  let x = i*50;
-  let amplitude = 20;
-  let frequency = 5;
-  let y = 250 + Math.sin(i/frequency)*amplitude;
+ //  let x = 1250+i*50;
+ // let amplitude = 20;
+ // let frequency = 5;
+ //
+ // let y = 250 + Math.sin(i/frequency)*amplitude;
+
+if (i<10) {
+  let radius = 200;
+  x = 1200 + radius * (Math.cos( i/10    * (Math.PI*2) ))
+  y = 400+  radius * (Math.sin( i/10    * (Math.PI*2) ))
+}
+
+else if (i<30) {
+  let radius = 120;
+  x = 400 + radius * (Math.cos( i/10    * (Math.PI*2) ))
+  y = 50 + radius * (Math.sin( i/10    * (Math.PI*2) ))
+}
+else if (i<60) {
+  let radius = 200;
+  x = 400 + radius * (Math.cos( i/15    * (Math.PI*2) ))
+  y = 50 + radius * (Math.sin( i/15    * (Math.PI*2) ))
+}
+else if (i<100) {
+  let radius = 300;
+  x =  + radius * (Math.cos( i/20    * (Math.PI*2) ))
+  y = 700 + radius * (Math.sin( i/20    * (Math.PI*2) ))
+}
+else if (i<150) {
+  let radius = 50;
+  x = 1200 + radius * (Math.cos( i/50    * (Math.PI*2) ))
+  y = 400 + radius * (Math.sin( i/50    * (Math.PI*2) ))
+}
+else if (i<280) {
+  let radius = 200;
+  x = 2000 + radius * (Math.sin( i/10    * (Math.PI*2) ))
+  y = 600 + radius * (Math.cos( i/10    * (Math.PI*2) ))
+}
+// else if (i<250) {
+//   let radius = 40;
+//   x = 1600 + radius * (Math.cos( i/20    * (Math.PI*2) ))
+//   y =  + radius * (Math.sin( i/20    * (Math.PI*2) ))
+// }
+else if (i<300) {
+  let radius = 200;
+  x = 2400 + radius * (Math.cos( i/10    * (Math.PI*2) ))
+  y =  200+ radius * (Math.sin( i/10    * (Math.PI*2) ))
+}
+else if (i<350) {
+  let radius = 100;
+  x = 2000 + radius * (Math.cos( i/10    * (Math.PI*2) ))
+  y =  600+ radius * (Math.sin( i/10    * (Math.PI*2) ))
+}
+else if (i<400) {
+  let radius = 150;
+  x = 2400 + radius * (Math.cos( i/10    * (Math.PI*2) ))
+  y =  200+ radius * (Math.sin( i/10    * (Math.PI*2) ))
+}
+else if (i<450) {
+  let radius = 120;
+  x = 1600 + radius * (Math.cos( i/20    * (Math.PI*2) ))
+  y =  + radius * (Math.sin( i/20    * (Math.PI*2) ))
+}
+else if(i < 460){
+  let radius = 100;
+  x = 700 + radius * (Math.cos( i/10    * (Math.PI*2) ))
+  y =  400+ radius * (Math.sin( i/10    * (Math.PI*2) ))
+}
+// else  {
+//   let radius = 150;
+//   x = 2000 + radius * (Math.cos( i/10    * (Math.PI*2) ))
+//   y =  600+ radius * (Math.sin( i/10    * (Math.PI*2) ))
+// }
   console.log (d,i)
-  console.log ("_")
   return "translate(" + x + ", " + y +")";
 }
 
@@ -59,7 +121,9 @@ function gotData(incomingLaughters){
   .attr("class", "laughters")  // should correpond with what you select above, "select what you are about to create"
   ;
 
-  laughters.attr("transform",randomPosition);
+ laughters.attr("transform",randomPosition);
+
+
 
   laughters.append("circle")
   .attr("cx",0)
@@ -68,15 +132,6 @@ function gotData(incomingLaughters){
   .attr("fill",chooseColor)
   .attr("class", "singleLaughter")   //<- this is simply good practise to keep things organized.
   ;
-  // if (incomingLaughters.typeOfLaughters == "Giggle ") {
-  //   laughters.append("circle")
-  //   .attr("cx",0)
-  //   .attr("cy",0)
-  //   .attr("r",30)
-  //   .attr("fill",chooseColor)
-  //   .attr("class", "singleLaughter")   //<- this is simply good practise to keep things organized.
-  //   ;
-  //
 
 
   function filterCircle(element){
@@ -156,12 +211,20 @@ laughters.filter(filterCircle).append("circle")
     ;
 
 laughters.filter(filterRect).append("rect")
-    .attr("x", 0)
-    .attr("y", 0)
-    .attr("width", 15)
-    .attr("height",15)
+    .attr("x", -13)
+    .attr("y", -13)
+    .attr("width", 25)
+    .attr("height",25)
     .attr("fill","white")
     .attr("class","middleRect")
+    ;
+laughters.filter(filterRect).append("rect")
+    .attr("x", -10)
+    .attr("y", -10)
+    .attr("width", 20)
+    .attr("height",20)
+    .attr("fill",chooseColor)
+    .attr("class","smallRect")
     ;
 
 laughters.filter(filterEllipse).append("ellipse")
@@ -246,8 +309,6 @@ laughters.filter(filterEvening).filter(filterCross).append("circle")
     .attr("fill","white")
     .attr("class","Evening")
     ;
-
-
 
 
 }
