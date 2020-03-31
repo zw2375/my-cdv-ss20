@@ -10,10 +10,10 @@ In Zuboff's point of view, Surveillance Capitalism is a method that commercial c
 
 
 ####Is there aspects of Zuboff's ideas that...
-...you were partilcuarly surprise by?
-...disagree with?
-...spark associations with your own exoerience?
-...you want to ask further questions about?####
+####...you were partilcuarly surprise by?
+####...disagree with?
+####...spark associations with your own exoerience?
+####...you want to ask further questions about?####
 
 
 What surprises me most is her mentioning of  "When you are searching Google, Google is searching you."  Even though I know the users are being tracked all the time by the companies, I unconciously forget all about this when I am a user with all the free service in front of me. So this kind of expression actually make me realize that I am always thinking about this issue as an outsider.
