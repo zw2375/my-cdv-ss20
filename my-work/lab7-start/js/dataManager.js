@@ -13,9 +13,9 @@
 // testing d3 different random number generators:
 // https://observablehq.com/@d3/d3-random#normal
 
-// let getRandom = d3.randomNormal(50, 11); //as so often, d3 returns a function that we can use
-// let testRandomNumber = getRandom();
-// console.log("testing random number:", testRandomNumber);
+let getRandom = d3.randomNormal(50, 11); //as so often, d3 returns a function that we can use
+let testRandomNumber = getRandom();
+console.log("testing random number:", testRandomNumber);
 
 //                      _                       _        _
 //  _ __ __ _ _ __   __| | ___  _ __ ___    ___| |_ _ __(_)_ __   __ _
