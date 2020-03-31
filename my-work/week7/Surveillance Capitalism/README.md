@@ -1,7 +1,6 @@
 #### In your own words, what does Zuboff mean by "Surveillance Capitalism"####
 
-In Zuboff's point of view, Surveillance Capitalism is a method that commercial companies use to track every one's private experience for the market purpose. Then they use these data to predict people's preferences, decisions, and even behaviors. They constantly make changes or even construct a new mode due to these results in order to cater for people. In this way, they gain a large quantity of benefits and gradually change users' behavior and thinking as well. Surveillance Capitalism has been permiated into every aspects of our lives even when we are doing offline things
-
+In Zuboff's point of view, Surveillance Capitalism is a method that commercial companies use to track every one's private experience for the market purpose. Then they use these data to predict people's preferences, decisions, and even behaviors. They constantly make changes or even construct a new mode due to these results in order to cater for people. In this way, they gain a large quantity of benefits and gradually change users' behavior and thinking as well.
 
 
 
