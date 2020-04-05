@@ -1,0 +1,15 @@
+
+**“Radio Lab Right to be forgotten”**
+
+The biggest difficulty is finding a balance between what can be forgotten and what should be recorded on the internet
+The evaluation should be careful than ever since the delete is a one-time thing and has a great influence on the person's future life or even the society. However, this is really difficult since the records vary from each other greatly and the evaluation should involve all kinds of criteria. And each of the criteria would cause bais. Because when it comes to ethical issues, there is no clear dimension and the algorithm is absolutely not an ideal solution.
+
+This makes me think of the Nth room's case which arouses huge attention recently. Lots of Korean people have signed the petition to public the users' personal information. But as the people involved in this case are so many that the number is the same as existing taxis in Korean. How to deal with their records is really similar to how should we deal with the right to be forgotten. For example, there is a primary school teacher who eagerly wants to erase this record of being involved in this case. Should his record be kept and then serves as a reference to the primary school and other institution which have the intention to employ him? Or should this record be erased forever since that it would ruin this young man's promising future totally?
+
+Another thing that occurs to me is that, if people can easily get what they said or did in the internet erased, it would add to the similar issues that anonymity creates. Because people would feel less responsible for what they said or did on the internet as they are ensured that they can delete this information easily.
+
+
+
+**"The Daily The End of Privacy as we know it?"**
+
+As it's mentioned in the podcast, a system like Clear View can undoubtedly contribute to tracking down criminals. It can serve as a more powerful surveillance system rather than the monitor system. However, I reckon that the system would bring more risks than benefits, not only for the privacy issue that everyone would face but also people's increasing tense. What makes me thrilled most is that this kind of system is so powerful that it will lead to the abuse of power. Just as the podcast shows, when Clear View gets the information that some of the policemen are uploading the journalist's photo, it blocks the result immediately and forbid the police to do so. This reminds everyone that the company has and may always have the biggest authority and there is currently no law for that to restrict it. Besides this, it can be an amazing tool for the society but also would also become a powerful weapon in others' hands. It's obvious that people have to accept this technology since it has already exists. But a regulation should be brought up to reduce the potential risk. I feel like it can refer to the regulation of the monitor system which shares a similar characteristic that it contributes to normative behaviors but violate people's privacy to some extent at the same time. Rules need to classify clearly about what's allowed to do and what's not allowed to do.
