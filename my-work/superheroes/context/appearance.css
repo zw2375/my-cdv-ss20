@@ -1,14 +1,12 @@
-
 .stickHeader{
   position: sticky;
   z-index: 2;
   top:0;
-  background-color: "white";
+  background-color: white;
 }
 .scolling{
   position:relative;
 }
-
 
 
 
@@ -19,13 +17,12 @@
   text-shadow: 2px 2px #880D0D;
   margin: 3px;
 }
-
 .title h2{
   font-family: 'Bangers';
   font-size: 3em;
   text-shadow: 2px 2px #880D0D;
   margin:2px;
-  padding:  0  0  0 50px
+  padding:  0  0  0 50px;
 }
 
 
@@ -120,12 +117,11 @@
   text-align: center;
   vertical-align: middle;
 }
-.filter{
-
+.name{
+  position: sticky;
 }
-
-.IDcard{
-   height:30px;
-   width:50px;
-   background-color: black;
+.name p{
+  font-family: 'Bangers';
+  font-size: 3em;
+  padding:  2em  0  0 8em;
 }

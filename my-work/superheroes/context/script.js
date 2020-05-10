@@ -1,251 +1,44 @@
-let w = 1500;
-let h = 5000;
+let w = 1450;
+let h = 500;
 let xpadding = 100;
 let ypadding = 50;
 
 
 
-// put the svg onto the page:
+//put the svg onto the page:
 let viz = d3.select("#container")
   .append("svg")
     .style("width", w)
     .style("height", h)
-    .style("background-color","lavender")
 ;
 
-d3.csv("heroes_information.csv").then(basicViz);
-d3.csv("super_hero_powers.csv").then(powerViz);
+d3.json("heroes.json").then(basicViz);
 
 
 
 //The viz of basic info
 
 function basicViz(basicInfo){
-  document.getElementById("buttonE").addEventListener("click", detailedDisplay);
-  document.getElementById("buttonA").addEventListener("click", nameDisplay);
+
   console.log(basicInfo);
-
-
-
-
-    function detailedDisplay(){
-
-    let yDomain = d3.extent(basicInfo, function(d){ return d.Weight });
-    let yScale = d3.scaleLinear().domain(yDomain).range([ypadding, w-ypadding]);
-    let yAxis = d3.axisBottom(yScale);
-    let yAxisGroup = viz.append("g")
-        .attr("class", "yaxisgroup")
-        .attr("transform", "translate(0,"+(h-ypadding)+")")
-    ;
-    yAxisGroup.call(yAxis);
-
-    let basicInfoGroup = viz.selectAll(".basicInfoGroup").data(basicInfo).enter()
-      .append("g")
-        .attr("class","basicInfoGroup")
-        ;
-
-singleImg = basicInfoGroup.append("circle")
-                    .attr("cx",w/2)
-                    .attr("cy",function(d){
-                      return yScale(d.Weight)
-                    })
-                    .attr("r",chooseSize)
-                    .attr("class","singleHero")
-                    .on("mouseover",function(d,i){
-
-
-                      d3.select(this)
-                        .transition()
-                        .duration(500)
-                        .attr("r",50);
-                      textElement.text(d.name,d.gender)
-                        .attr("x",function(d){
-                          return d3.event.clientX
-                        })
-                        .attr("y",function(d){
-                          return d3.event.clientY
-                        })
-                    })
-                    .on("mouseout",function(d,i){
-                      // textElement.text('');
-                      d3.select(this)
-                      .transition()
-                      .attr("r",chooseSize)
-                    })
-                    ;
-
-
-
-textElement = viz.append("text")
-        .attr("x",w/2)
-        .attr("y",h/2)
-        .attr("font-size",90)
-        .attr("fill","white")
-        ;
-
-
-
-   function chooseSize(){
-     return (Math.random() * 30+ 10)
-   }
-
-  let simulation = d3.forceSimulation(basicInfo)
-    .force("forceX",d3.forceX(w/2))
-    .force("forceY",function(d){
-      return d3.forceY(yScale(d.Weight))
-    })
-    .force("collide",d3.forceCollide().radius(function(d){
-      return chooseSize() + chooseSize()/2
-    }))
+var currentData =[]
+let simulation = d3.forceSimulation(currentData)
+     .force("forceX",d3.forceX(w/2))
+     .force("forceY",d3.forceY(h/2))
+   .force("manyBody",d3.forceManyBody().strength(-30))
+  //.force("center",d3.forceCenter([w/2,h/2]))
+  //  .force("collide",d3.forceCollide().radius(function(d){
+  //   return 10
+  // }))
     .on("tick",simulationRan)
     ;
 
-  basicInfo = basicInfo.map(function(datapoint){
-    datapoint.x = w/2
-    datapoint.y = yScale(datapoint.Weight)
-    return datapoint
+function simulationRan(){
+//  console.log(basicInfo[0].x);
+  viz.selectAll(".basicInfoGroup")
+  .attr("transform",function(d){
+    return "translate("+d.x+","+d.y+")"
   })
-
-  function simulationRan(){
-    console.log(basicInfo[0].x);
-    viz.selectAll(".singleHero")
-    .attr("cx",function(d){
-      return d.x
-    })
-    .attr("cy",function(d){
-      return d.y
-    })
-  }
-  }
-
-
-  function nameDisplay(){
-    viz.append("circle")
-                .attr("cx",100)
-                .attr("cy",100)
-                .attr("r",20)
-                ;
-
-//gender specific
-
-
-// a = superheroName[0].includes("ello")
-// console.log(a);
-
-   function calculate(d,i){
-
-      var woman = 0;
-       var  man = 0;
-       var  girl =0;
-       var  miss = 0;
-       var  queen = 0;
-       var  king = 0;
-       var  mr = 0;
-       var  directName = 0;
-     // all can apply
-       var   doctor = 0;
-
-    console.log(superheroName);
-
-    if (superheroName[i].includes("girl")) {
-      girl  += 1
-    }
-    else if (superheroName[i].includes("girl"||"Girl")) {
-      girl += 1
-    }
-    else if (superheroName[i].includes("miss"||"Miss")) {
-      miss += 1
-    }
-    else if (superheroName[i].includes("queen"||"Queen")) {
-      queen += 1
-    }
-    else if (superheroName[i].includes("king"||"King")) {
-      king += 1
-    }
-    else if (superheroName[i].includes("mister"||"Mr")) {
-      mister += 1
-    }
-    else {
-      directName +=1
-    }
-    console.log(woman);
-   }
-   calculate()
-
-
-  }
-
-
-
-
-
-
-
-
-  superheroName = basicInfo.map(function(d,i){
-      return String(d.name);
-    })
-
-
-//get img
-  function getSuperheroImg(superheroName,callback){
-
-
-  let accessToken = "224402655546228";
-  let corsFix = "https://cors-anywhere.herokuapp.com/";
-  let byNameURLbase = "https://superheroapi.com/api/"+ accessToken+"/search/";
-
-
-  function getResponse(res){
-    console.log(res.body);
-
-    if (res.body.response == "error") {
-      callback ("error");
-    }else {
-      callback (res.body.results[0].image.url)
-    }
-  }
-
-  superagent
-    .get(corsFix+byNameURLbase+ encodeURIComponent(superheroName))
-    .then(getResponse)
-    .catch(err => {
-       // err.message, err.response
-    });
-
-  }
-
-
-
-//  let imgURL = [];
-//
-//   for (i = 0; i < 733; i++) {
-//   imgurl = getSuperheroImg(name[i],gotURL)
-//   singleurl= {"name":name[i],"url":imgurl}
-//   imgURL.push(singleurl);
-// }
-//   function getNameWithurl(d,i){
-//     let imgURL = [];
-//     imgurl = getSuperheroImg(name[i],gotURL)
-//     singleurl= {"name":name[i],"url":imgurl}
-//     imgURL.push(singleurl);
-//     console.log(imgURL);
-//   }
-//
-//   function gotURL(urlForImg){
-//     console.log(urlForImg);
-//   }
-// getNameWithurl()
-//
-// singleImg.attr("fill","url ("+chooseImg+")")
-//
-// function chooseImg(d,i){
-//     return imgURL[i].url
-// }
-
-
-
-
 }
 
 
@@ -253,6 +46,241 @@ textElement = viz.append("text")
 
 
 
-function powerViz(powerData){
-  console.log(powerData);
-}
+let a = 0
+
+setInterval(function(){
+
+currentData.push(basicInfo[a])
+//console.log(currentData);
+let basicInfoGroups = viz.selectAll(".basicInfoGroup").data(currentData).enter()
+                                                    .append("g")
+                                                    .attr("class","basicInfoGroup")
+                                                    ;
+
+let defs = basicInfoGroups.append("defs")
+let pattern = defs.append("pattern")
+                    .attr("id",function(d, i){
+                      return "image"+i
+                    })
+                    .attr("x","0%")
+                    .attr("y","0%")
+                    .attr("height","150%")
+                    .attr("width","150%")
+                    .attr("viewBox","100 100 512 512")
+                    ;
+
+let image = pattern.append("image")
+                 .attr("x","0%")
+                 .attr("y","0%")
+                 .attr("width","512")
+                 .attr("height","512")
+                 .attr("xlink:href", function(d,i){
+                        return d.imgURL
+                      })
+                  ;
+
+
+singleImg = basicInfoGroups
+                    .append("circle")
+                    .attr("r",10)
+                    .attr("fill",function(d){
+                             if (d.Gender == "Female") {
+                               return "#8B0101"
+                             }
+                             else if (d.Gender == "Male") {
+                               return "#070E3F"
+                             }
+                             else {
+                               return "#E4A332"
+                             }
+                           }
+                         )
+                    .on("mouseover",function(d,index){
+                          //    console.log(d,index);
+                              let url = "url(#image"+index+")";
+                          //    console.log(url);
+                              d3.selectAll("basicInfoGroup").sort(-1)
+                              d3.select(this)
+                                .attr("fill", url)
+                                .transition()
+                                .duration(500)
+                                .attr("r",100)
+                                .sort(1)
+
+                          })
+
+                    .on("mouseout",function(d,i){
+                          d3.select(this)
+                          .transition()
+                          .attr("r",10)
+                        });
+
+
+simulation.nodes(currentData);
+
+simulation.alpha(1).restart();
+a ++
+},1000)
+
+
+
+
+
+
+
+     // var tooltip = d3.select("#container")
+      // 	.append("div")
+      // 	.style("position", "absolute")
+      // 	.style("z-index", "10")
+      // 	.style("visibility", "hidden")
+      // 	.text("a simple tooltip");
+
+
+//
+//     let yDomain = d3.extent(basicInfo, function(d){ return d.Weight });
+//     let yScale = d3.scaleLinear().domain(yDomain).range([ypadding, w-ypadding]);
+//     let yAxis = d3.axisBottom(yScale);
+//     let yAxisGroup = viz.append("g")
+//         .attr("class", "yaxisgroup")
+//         .attr("transform", "translate(0,"+(h-ypadding)+")")
+//     ;
+//     yAxisGroup.call(yAxis);
+//
+//     let basicInfoGroup = viz.selectAll(".basicInfoGroup").data(basicInfo).enter()
+//       .append("g")
+//         .attr("class","basicInfoGroup")
+//         ;
+// //
+//     let defs = basicInfoGroup.append("defs")
+//     let pattern = defs.append("pattern")
+//                         .attr("id",function(d, i){
+//                           return "image"+i
+//                         })
+//                         .attr("x","0%")
+//                         .attr("y","0%")
+//                         .attr("height","150%")
+//                         .attr("width","150%")
+//                         .attr("viewBox","100 100 512 512")
+//                         ;
+//  let image = pattern.append("image")
+//                      .attr("x","0%")
+//                      .attr("y","0%")
+//                      .attr("width","512")
+//                      .attr("height","512")
+//                      .attr("xlink:href", function(d,i){
+//                             return d.imgURL
+//                           })
+//                       ;
+//
+// singleImg = basicInfoGroup.append("circle")
+//                             .attr("cx",w/11)
+//                             .attr("cy",h/2)
+//                             .attr("r",chooseSize)
+//                             .attr("class","singleHero")
+//                             .attr("fill",function(d){
+//                                 if (d.Gender == "Female") {
+//                                   return "#8B0101"
+//                                 }
+//                                 else if (d.Gender == "Male") {
+//                                   return "#070E3F"
+//                                 }
+//                                 else {
+//                                   return "#E4A332"
+//                                 }
+//                               }
+//                             )
+//                             .on("mouseover",function(d,i){
+//                                  d3.select(this)
+//                                    .transition()
+//                                    .duration(500)
+//                                    .attr("r",100)
+//                                    .attr("fill","url(#image"+i+")")
+//
+//                                    ;
+//                              //   tooltip.style("visibility", "visible");
+//                                  textElement.text(d.name)
+//                                    .attr("x",w/9)
+//                                    .attr("y",function(d){
+//                                      return d3.event.clientY
+//                                    })
+//                                })
+//                                .on("mouseout",function(d,i){
+//                                   textElement.text('');
+//                                  d3.select(this)
+//                                  .transition()
+//                                  .attr("r",chooseSize)
+//                                // tooltip.style("visibility", "hidden");
+//                                });
+
+//
+//
+//
+//
+// textElement = viz.append("text")
+//         .attr("x",w/2)
+//         .attr("y",h/2)
+//         .attr("font-size",50)
+//         .attr("fill","white")
+//         .attr("stroke","black")
+//         .attr("class","IDcard")
+//         ;
+//
+//
+
+   // function chooseSize(){
+   //   return (Math.random() * 10)
+   // }
+//
+//
+//   let simulation = d3.forceSimulation(basicInfo)
+//     .force("forceX",d3.forceX(w/2))
+//     .force("forceY",function(d){
+//       return d3.forceY(yScale(d.Weight))
+//     })
+//     //.force("center",[100, 100])
+//     .force("collide",d3.forceCollide().radius(function(d){
+//       return 10
+//     }))
+//     .on("tick",simulationRan)
+//     ;
+//
+//
+//
+//   basicInfo = basicInfo.map(function(datapoint){
+//     datapoint.x = w/2
+//     datapoint.y = yScale(datapoint.Weight)
+//     return datapoint
+//   })
+//   //
+//   function simulationRan(){
+//   //  console.log(basicInfo[0].x);
+//     viz.selectAll(".basicInfoGroup")
+//     .attr("transform",function(d){
+//       return "translate("+d.x+","+d.y+")"
+//     })
+// }
+//
+// var currentData = []
+// setInterval(function(){
+//
+//   // Add a new random shape.
+//
+//
+//
+//   // Restart the layout.
+//   forceSimulation.restart();
+//
+//   viz.selectAll("path")
+//       .data(currentData)
+//     .enter().append("path")
+//       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+//       .style("fill", "steelblue")
+//       .style("stroke", "white")
+//       .style("stroke-width", "1.5px")
+//
+// }, 1000);
+//
+//
+//
+//
+ }
