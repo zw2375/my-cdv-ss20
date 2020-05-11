@@ -1,5 +1,5 @@
 let w = 1450;
-let h = 500;
+let h = 1000;
 let xpadding = 100;
 let ypadding = 50;
 
@@ -25,7 +25,7 @@ var currentData =[]
 let simulation = d3.forceSimulation(currentData)
      .force("forceX",d3.forceX(w/2))
      .force("forceY",d3.forceY(h/2))
-   .force("manyBody",d3.forceManyBody().strength(-30))
+     .force("manyBody",d3.forceManyBody().strength(-50))
   //.force("center",d3.forceCenter([w/2,h/2]))
   //  .force("collide",d3.forceCollide().radius(function(d){
   //   return 10
@@ -82,7 +82,7 @@ let image = pattern.append("image")
 
 singleImg = basicInfoGroups
                     .append("circle")
-                    .attr("r",10)
+                    .attr("r",15)
                     .attr("fill",function(d){
                              if (d.Gender == "Female") {
                                return "#8B0101"
@@ -112,7 +112,7 @@ singleImg = basicInfoGroups
                     .on("mouseout",function(d,i){
                           d3.select(this)
                           .transition()
-                          .attr("r",10)
+                          .attr("r",15)
                         });
 
 

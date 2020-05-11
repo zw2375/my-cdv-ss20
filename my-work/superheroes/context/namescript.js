@@ -47,6 +47,7 @@ function basicViz(basicInfo){
  let femaleNum = "0";
  let maleNum = "0";
  let femalename = '';
+ let malename ='';
 
   let femaleCircleGroup= viz.append("g")
                              .attr("class","femaleCircle");
@@ -69,9 +70,10 @@ function basicViz(basicInfo){
         .attr("class","femaleCircle")
         ;
 femaleName = femaleCircleGroup.append("text")
-      .text('')
+      .text(femalename)
       .attr("x",100)
-      .attr("y",440)
+      .attr("y",480)
+  //    .attr("opacity",0)
       .attr("fill",red)
       .attr("font-family","Nanum Brush Script")
       .attr("font-size","2em")
@@ -94,15 +96,28 @@ femaleName = femaleCircleGroup.append("text")
     .attr("class","maleCircle")
     ;
 
+    maleName = femaleCircleGroup.append("text")
+          .text(malename)
+          .attr("x",500)
+          .attr("y",540)
+    //      .attr("opacity",0)
+          .attr("fill",blue)
+          .attr("font-family","Nanum Brush Script")
+          .attr("font-size","2em")
+          .attr("class","femaleCircle")
+
+
+
 function updateCircle(){
         femaleCircle
+          .on("mouseover",function(){
+            div.attr("opacity", 1)
+          })
     			.transition()
           .duration(1000)
     			.attr("r", rScale(radiusforfemale))
     			.attr("fill", red)
-          // .on("mouseover",function(){
-          //   femaleName.text(femalename);
-          // })
+
     	    ;
 
         femaleNumber
@@ -110,10 +125,14 @@ function updateCircle(){
         .duration(1000)
         .text(femaleNum)
         ;
+
         femaleName
         .transition()
         .duration(1000)
         .text(femalename)
+        // .on("mouseover", functin(){
+        //   femaleName.attr("opacity",1)
+        // })
         ;
 
         maleCircle
@@ -122,12 +141,18 @@ function updateCircle(){
   			  .attr("r", rScale(radiusformale))
   			  .attr("fill", blue)
   	      ;
+
         maleNumber
           .transition()
           .duration(1000)
           .text(maleNum)
           ;
 
+          maleName
+          .transition()
+          .duration(1000)
+          .text(malename)
+          ;
       }
 
 updateCircle()
@@ -142,14 +167,16 @@ enterView({
     femaleNum = "5"
     maleNum = "19"
     femalename = woman.toString();
-
+    malename = man.toString();
 		updateCircle();
 	},
 	exit: function(el) {
     radiusforfemale = 0;
     radiusformale = 0;
     femaleNum = "0"
-    maleNum = "0"
+     maleNum = "0"
+     femalename = '';
+     malename = '';
 		updateCircle();
 	},
 	offset: 0.5, // enter at middle of viewport
@@ -164,6 +191,7 @@ enterView({
     femaleNum = "11"
     maleNum = "4"
     femalename = girl.toString();
+    malename = boy.toString();
 		updateCircle();
 	},
 	exit: function(el) {
@@ -171,6 +199,8 @@ enterView({
     radiusformale = 0;
     femaleNum = "0"
     maleNum = "0"
+    femalename = '';
+    malename = '';
 		updateCircle();
 	},
 	offset: 0.5, // enter at middle of viewport
@@ -184,6 +214,8 @@ enterView({
     radiusformale = 6;
     femaleNum = "1"
     maleNum = "6"
+    femalename = miss.toString();
+    malename = mister.toString();
 		updateCircle();
 	},
 	exit: function(el) {
@@ -191,6 +223,8 @@ enterView({
     radiusformale = 0;
     femaleNum = "0"
     maleNum = "0"
+    femalename = '';
+    malename = '';
 	},
 	offset: 0.5, // enter at middle of viewport
 	// once: true, // trigger just once
@@ -205,6 +239,9 @@ enterView({
     radiusformale = 2;
     femaleNum = "0"
     maleNum = "2"
+  //  femalename ='';
+    femalename = ""
+    malename = king.toString();
 		updateCircle();
 	},
 	exit: function(el) {
@@ -212,6 +249,8 @@ enterView({
     radiusformale = 0;
     femaleNum = "0"
     maleNum = "0"
+    femalename = '';
+    malename = '';
 		updateCircle();
 	},
 	offset: 0.5, // enter at middle of viewport
@@ -225,6 +264,8 @@ enterView({
     radiusformale = 1;
     femaleNum = "0"
     maleNum = "1"
+    femalename = ""
+    malename = master.toString();
 		updateCircle();
 	},
 	exit: function(el) {
@@ -232,6 +273,8 @@ enterView({
     radiusformale = 0;
     femaleNum = "0"
     maleNum = "0"
+    femalename = '';
+    malename = '';
 		updateCircle();
 	},
 	offset: 0.5, // enter at middle of viewport
@@ -244,6 +287,13 @@ enterView({
     radiusformale = 12;
     femaleNum = "1"
     maleNum = "12"
+    femalename = "Captain Marvel"
+    function remove(captain, element) {
+      return captain.filter(el => el !== element);
+    }
+    captain = remove(captain, "x");
+    captain.toString();
+    malename = captain.toString();
 		updateCircle();
 	},
 	exit: function(el) {
@@ -251,6 +301,8 @@ enterView({
     radiusformale = 0;
     femaleNum = "0"
     maleNum = "0"
+    femalename = '';
+    malename = '';
 		updateCircle();
 	},
 	offset: 0.5, // enter at middle of viewport

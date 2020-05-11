@@ -18,8 +18,8 @@ d3.csv("heroes_information.csv").then(visualizeAppearance);
 function visualizeAppearance(){
   eyegroups =  viz.append("g");
   eyegroups.append("ellipse")
-            .attr("cx",10)
-            .attr("cy",20)
-            .attr("rx",40)
-            .attr("ry",400)
+            .attr("cx",200)
+            .attr("cy",200)
+            .attr("rx",100)
+            .attr("ry",40)
 }
