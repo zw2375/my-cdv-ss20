@@ -13,13 +13,20 @@ let viz = d3.select("#container")
     .style("height", h)
   //  .style("background-color","lavender")
 ;
-d3.csv("heroes_information.csv").then(visualizeAppearance);
+d3.json("heroes.json").then(visualizeAppearance);
 
-function visualizeAppearance(){
+function visualizeAppearance(basicInfo){
+  femaleEye=[];
+  maleEye = [];
   eyegroups =  viz.append("g");
   eyegroups.append("ellipse")
             .attr("cx",200)
             .attr("cy",200)
             .attr("rx",100)
             .attr("ry",40)
+ for (var i = 0; i < basicInfo.length; i++) {
+   if (basicInfo[i].Gender == "Female") {
+     
+   }
+ }
 }

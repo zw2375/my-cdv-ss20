@@ -1,5 +1,5 @@
 let w = 1450;
-let h = 1000;
+let h = 1500;
 let xpadding = 100;
 let ypadding = 50;
 
@@ -24,7 +24,7 @@ function basicViz(basicInfo){
 var currentData =[]
 let simulation = d3.forceSimulation(currentData)
      .force("forceX",d3.forceX(w/2))
-     .force("forceY",d3.forceY(h/2))
+     .force("forceY",d3.forceY(680))
      .force("manyBody",d3.forceManyBody().strength(-50))
   //.force("center",d3.forceCenter([w/2,h/2]))
   //  .force("collide",d3.forceCollide().radius(function(d){
@@ -46,9 +46,40 @@ function simulationRan(){
 
 
 
-let a = 0
+let a = 0;
+let maleNum = 0;
+let femaleNum = 0;
+let none = 0;
+//let time = 1000;
+femaleNumtxt = viz.append("text")
+        .attr("x",30)
+        .attr("y",100)
+        .attr("font-size",50)
+        .attr("fill","#8B0101")
+        .attr("font-family","Nanum Brush Script")
+        ;
+maleNumtxt = viz.append("text")
+              .attr("x",30)
+              .attr("y",150)
+              .attr("font-size",50)
+              .attr("fill","#070E3F")
+              .attr("font-family","Nanum Brush Script")
+              ;
 
-setInterval(function(){
+
+
+// let quickText = viz.append("text")
+//                     .attr("x",120)
+//                     .attr("y",200)
+//                     .text("Hover to make it quicker")
+//                     .attr("fill","#E4A332")
+//                     .on("mouseover", function changeTime(){
+//                     //  quickText.attr("fill","black")
+//                       time = 1
+//                     })
+//                     ;
+
+function enterHero(){
 
 currentData.push(basicInfo[a])
 //console.log(currentData);
@@ -57,6 +88,17 @@ let basicInfoGroups = viz.selectAll(".basicInfoGroup").data(currentData).enter()
                                                     .attr("class","basicInfoGroup")
                                                     ;
 
+if (basicInfo[a].Gender == "Female"){
+  femaleNum ++
+}
+if (basicInfo[a].Gender == "Male"){
+  maleNum ++
+}
+if (basicInfo[a].Gender == "-"){
+  none ++
+}
+femaleNumtxt.text("Current female number:" + femaleNum)
+maleNumtxt.text("Current male number:" + maleNum)
 let defs = basicInfoGroups.append("defs")
 let pattern = defs.append("pattern")
                     .attr("id",function(d, i){
@@ -96,17 +138,16 @@ singleImg = basicInfoGroups
                            }
                          )
                     .on("mouseover",function(d,index){
+                  //  console.log("selected");
                           //    console.log(d,index);
                               let url = "url(#image"+index+")";
                           //    console.log(url);
-                              d3.selectAll("basicInfoGroup").sort(-1)
+
                               d3.select(this)
                                 .attr("fill", url)
                                 .transition()
                                 .duration(500)
                                 .attr("r",100)
-                                .sort(1)
-
                           })
 
                     .on("mouseout",function(d,i){
@@ -120,8 +161,11 @@ simulation.nodes(currentData);
 
 simulation.alpha(1).restart();
 a ++
-},1000)
-
+if(a == basicInfo.length){
+     clearInterval(enter);
+ }
+}
+enter = setInterval(enterHero,1)
 
 
 
@@ -224,7 +268,7 @@ a ++
 //         .attr("stroke","black")
 //         .attr("class","IDcard")
 //         ;
-//
+
 //
 
    // function chooseSize(){

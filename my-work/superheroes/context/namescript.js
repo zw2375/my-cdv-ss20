@@ -3,7 +3,8 @@ let h = 1500;
 let xpadding = 50;
 let ypadding = 50;
 // put the svg onto the page:
-let viz = d3.select("#visualizationWrapper")
+ var svgContainer = d3.select('#visualizationWrapper');
+let viz = svgContainer
   .append("svg")
     .style("width", w)
     .style("height", h)
@@ -49,6 +50,13 @@ function basicViz(basicInfo){
  let femalename = '';
  let malename ='';
 
+ var tooltip = viz.append("div")
+     .style("position", "absolute")
+     .style("visibility", "hidden")
+     .text("I'm a circle!")
+     ;
+
+
   let femaleCircleGroup= viz.append("g")
                              .attr("class","femaleCircle");
   let maleCircleGroup= viz.append("g")
@@ -60,6 +68,17 @@ function basicViz(basicInfo){
         .attr("r",120)
         .attr("class","femaleCircle")
         ;
+
+        //
+        textElement = viz.append("text")
+                .attr("x",w/2)
+                .attr("y",h/2)
+                .attr("font-size",50)
+                .attr("fill","white")
+                .attr("stroke","black")
+                .attr("class","IDcard")
+                ;
+
   femaleNumber =femaleCircleGroup.append("text")
         .text(femaleNum)
         .attr("x",440)
@@ -109,20 +128,23 @@ femaleName = femaleCircleGroup.append("text")
 
 
 function updateCircle(){
+
         femaleCircle
-          .on("mouseover",function(){
-            div.attr("opacity", 1)
-          })
-    			.transition()
-          .duration(1000)
+    		 .transition()
+         .duration(1000)
     			.attr("r", rScale(radiusforfemale))
     			.attr("fill", red)
-
     	    ;
+
+          femaleCircleGroup.on("mouseover",function(){
+
+            tooltip.style("visibility","visible")
+
+          })
 
         femaleNumber
         .transition()
-        .duration(1000)
+        .duration(2000)
         .text(femaleNum)
         ;
 
@@ -147,7 +169,7 @@ function updateCircle(){
           .duration(1000)
           .text(maleNum)
           ;
-
+          //
           maleName
           .transition()
           .duration(1000)
